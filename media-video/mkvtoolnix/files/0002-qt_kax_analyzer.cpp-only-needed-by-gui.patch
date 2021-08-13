@@ -1,0 +1,84 @@
+From c60d540a2b935665f810186817c470fe9c092441 Mon Sep 17 00:00:00 2001
+From: John Einar Reitan <john.einar@gmail.com>
+Date: Fri, 6 Aug 2021 16:56:50 +0200
+Subject: [PATCH 2/2] qt_kax_analyzer.cpp only needed by gui
+
+---
+ src/mkvtoolnix-gui/chapter_editor/tab.h            | 2 +-
+ src/mkvtoolnix-gui/header_editor/page_base.h       | 2 +-
+ src/mkvtoolnix-gui/header_editor/tab.h             | 2 +-
+ src/{common => mkvtoolnix-gui}/qt_kax_analyzer.cpp | 3 +--
+ src/{common => mkvtoolnix-gui}/qt_kax_analyzer.h   | 0
+ 5 files changed, 4 insertions(+), 5 deletions(-)
+ rename src/{common => mkvtoolnix-gui}/qt_kax_analyzer.cpp (98%)
+ rename src/{common => mkvtoolnix-gui}/qt_kax_analyzer.h (100%)
+
+diff --git a/src/mkvtoolnix-gui/chapter_editor/tab.h b/src/mkvtoolnix-gui/chapter_editor/tab.h
+index 6e465ef20..8a74bd6a0 100644
+--- a/src/mkvtoolnix-gui/chapter_editor/tab.h
++++ b/src/mkvtoolnix-gui/chapter_editor/tab.h
+@@ -7,10 +7,10 @@
+ 
+ #include "common/bcp47.h"
+ #include "common/qt.h"
+-#include "common/qt_kax_analyzer.h"
+ #include "common/timestamp.h"
+ #include "mkvtoolnix-gui/chapter_editor/chapter_model.h"
+ #include "mkvtoolnix-gui/chapter_editor/renumber_sub_chapters_parameters_dialog.h"
++#include "mkvtoolnix-gui/qt_kax_analyzer.h"
+ #include "mkvtoolnix-gui/types.h"
+ 
+ class QComboBox;
+diff --git a/src/mkvtoolnix-gui/header_editor/page_base.h b/src/mkvtoolnix-gui/header_editor/page_base.h
+index f895edb78..7ad36e970 100644
+--- a/src/mkvtoolnix-gui/header_editor/page_base.h
++++ b/src/mkvtoolnix-gui/header_editor/page_base.h
+@@ -6,9 +6,9 @@
+ #include <QList>
+ 
+ #include "common/ebml.h"
+-#include "common/qt_kax_analyzer.h"
+ #include "common/translation.h"
+ #include "mkvtoolnix-gui/header_editor/tab.h"
++#include "mkvtoolnix-gui/qt_kax_analyzer.h"
+ 
+ namespace mtx::gui::HeaderEditor {
+ 
+diff --git a/src/mkvtoolnix-gui/header_editor/tab.h b/src/mkvtoolnix-gui/header_editor/tab.h
+index 9601de1fb..8a9e5c721 100644
+--- a/src/mkvtoolnix-gui/header_editor/tab.h
++++ b/src/mkvtoolnix-gui/header_editor/tab.h
+@@ -4,8 +4,8 @@
+ 
+ #include <QDateTime>
+ 
+-#include "common/qt_kax_analyzer.h"
+ #include "mkvtoolnix-gui/header_editor/page_model.h"
++#include "mkvtoolnix-gui/qt_kax_analyzer.h"
+ 
+ class QAction;
+ class QMenu;
+diff --git a/src/common/qt_kax_analyzer.cpp b/src/mkvtoolnix-gui/qt_kax_analyzer.cpp
+similarity index 98%
+rename from src/common/qt_kax_analyzer.cpp
+rename to src/mkvtoolnix-gui/qt_kax_analyzer.cpp
+index 542eb6e25..4ad30d729 100644
+--- a/src/common/qt_kax_analyzer.cpp
++++ b/src/mkvtoolnix-gui/qt_kax_analyzer.cpp
+@@ -18,8 +18,7 @@
+ #include <QMessageBox>
+ 
+ #include "common/qt.h"
+-#include "common/qt_kax_analyzer.h"
+-#include "common/qt_kax_analyzer.h"
++#include "mkvtoolnix-gui/qt_kax_analyzer.h"
+ 
+ QtKaxAnalyzer::QtKaxAnalyzer(QWidget *parent,
+                              QString const &fileName)
+diff --git a/src/common/qt_kax_analyzer.h b/src/mkvtoolnix-gui/qt_kax_analyzer.h
+similarity index 100%
+rename from src/common/qt_kax_analyzer.h
+rename to src/mkvtoolnix-gui/qt_kax_analyzer.h
+-- 
+2.31.1
+

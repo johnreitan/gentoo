@@ -1,0 +1,29 @@
+From 7054a5f6a2c26956a48e1bee4238f95590bb19ba Mon Sep 17 00:00:00 2001
+From: John Einar Reitan <john.einar@gmail.com>
+Date: Fri, 6 Aug 2021 16:42:26 +0200
+Subject: [PATCH 1/2] Only check for Qt GUI modules if building the GUI
+
+---
+ ac/qt5.m4 | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/ac/qt5.m4 b/ac/qt5.m4
+index 231ddc664..0b3450898 100644
+--- a/ac/qt5.m4
++++ b/ac/qt5.m4
+@@ -85,7 +85,11 @@ check_qt5() {
+ 
+     orig_with_qt_pkg_config_modules="$with_qt_pkg_config_modules,"
+ 
+-    with_qt_pkg_config_modules="$with_qt_pkg_config_modules,Qt5Core,Qt5Gui,Qt5Widgets,Qt5Multimedia,Qt5Network,Qt5Concurrent"
++    with_qt_pkg_config_modules="$with_qt_pkg_config_modules,Qt5Core"
++
++    if test x"$enable_gui" = xyes; then
++        with_qt_pkg_config_modules="$with_qt_pkg_config_modules,Qt5Gui,Qt5Widgets,Qt5Multimedia,Qt5Network,Qt5Concurrent"
++    fi
+ 
+     if test x"$MINGW" = x1; then
+       with_qt_pkg_config_modules="$with_qt_pkg_config_modules,Qt5WinExtras"
+-- 
+2.31.1
+
